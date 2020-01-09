@@ -5,7 +5,7 @@
 class Category_Posts extends WP_Widget
 {
     /**
-     * Function
+     * Construct function
      */
     public function __construct() 
     {
@@ -22,7 +22,7 @@ class Category_Posts extends WP_Widget
     }
 
     /**
-     * Function
+     * Widget function
      */
     public function widget( $args, $instance ) 
     {
@@ -130,7 +130,7 @@ class Category_Posts extends WP_Widget
     }
 
     /**
-     * Function
+     * Update function
      */
     public function update( $new_instance, $old_instance ) 
     {
@@ -151,7 +151,7 @@ class Category_Posts extends WP_Widget
     }
 
     /**
-     * Function
+     * Cache function
      */
     public function flushWidgetCache() 
     {
