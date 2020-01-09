@@ -1,9 +1,12 @@
 <?php
-
-function custom_dashboard_widget_callback() {
-?>
+/**
+ * Dashboard widget callback function
+ */
+function WPbook_Custom_Dashboard_Widget_callback() 
+{ 
+    ?>
     <p>Book post type books</p>
-<?php
+    <?php
     $args = array(         
                 'post_type' => 'book',
                 'tax_query' => array(
@@ -11,18 +14,19 @@ function custom_dashboard_widget_callback() {
                     array(
                         'taxonomy' => 'genre',
                         'field'    => 'term_id',
-                        'terms'    => array( 4, 5 ),
+                        'terms'    => array( 'autobiography', 'horror' ),
                     ),
                 ),
             );
-    $query1 = new WP_Query( $args );
+    $query1 = new WP_Query($args);
         
-    if( $query1->have_posts() ) {
-        while( $query1->have_posts() ) {
+    if ($query1->have_posts()) {
+        while ($query1->have_posts()) {
             $query1->the_post(); ?>                
-            <?php the_title( '<h4 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h4>' ); ?>    
-        <?php    
-
+            <?php 
+                the_title('<h4 class="entry-title"><a href="'.esc_url(get_permalink()).'"rel="bookmark">', '</a></h4>');
+            ?>
+            <?php
         }
     }
 }
